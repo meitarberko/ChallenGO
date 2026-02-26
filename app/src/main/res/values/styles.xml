@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ChallenGo.Loader.Small" parent="Widget.MaterialComponents.CircularProgressIndicator">
+        <item name="indicatorSize">20dp</item>
+        <item name="trackThickness">2dp</item>
+        <item name="indicatorColor">#8AF2FF</item>
+        <item name="trackColor">#33556B</item>
+    </style>
+
+    <style name="ChallenGo.Loader.Overlay" parent="Widget.MaterialComponents.CircularProgressIndicator">
+        <item name="indicatorSize">42dp</item>
+        <item name="trackThickness">4dp</item>
+        <item name="indicatorColor">#8AF2FF</item>
+        <item name="trackColor">#33556B</item>
+    </style>
+</resources>

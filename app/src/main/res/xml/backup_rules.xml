@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Exclude Room database files -->
+    <exclude domain="database" path="challengo_database.db" />
+    <exclude domain="database" path="challengo_database.db-shm" />
+    <exclude domain="database" path="challengo_database.db-wal" />
+</full-backup-content>

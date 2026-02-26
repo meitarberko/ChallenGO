@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_background_gradient"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:context=".MainActivity">
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/bottom_nav_container"
+        android:layout_width="0dp"
+        android:layout_height="78dp"
+        android:background="@drawable/bottom_nav_bg"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:elevation="8dp"
+        android:paddingTop="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            app:itemIconTint="@color/bottom_nav_selector"
+            app:itemTextColor="@color/bottom_nav_selector"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_navigation" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/wheel_ring"
+        android:layout_width="108dp"
+        android:layout_height="108dp"
+        android:background="@drawable/wheel_ring_glow"
+        android:elevation="16dp"
+        android:translationZ="16dp"
+        android:layout_marginBottom="-36dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/fab_center_wheel"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:contentDescription="@string/roll_challenge"
+        android:elevation="20dp"
+        android:translationZ="20dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/challange_buttob"
+        app:layout_constraintBottom_toBottomOf="@id/wheel_ring"
+        app:layout_constraintEnd_toEndOf="@id/wheel_ring"
+        app:layout_constraintStart_toStartOf="@id/wheel_ring"
+        app:layout_constraintTop_toTopOf="@id/wheel_ring" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
