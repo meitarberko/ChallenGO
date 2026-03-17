@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:paddingHorizontal="28dp"
+    android:paddingTop="48dp"
+    tools:context=".ui.fragment.RegisterFragment">
+
+    <ImageView
+        android:id="@+id/sparkle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="36dp"
+        android:alpha="0.7"
+        android:animation="@anim/sparkle_anim_1"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAccessibility="no"
+        android:src="@drawable/sparkle_3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/sparkle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="138dp"
+        android:layout_marginStart="24dp"
+        android:alpha="0.6"
+        android:animation="@anim/sparkle_anim_2"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAccessibility="no"
+        android:src="@drawable/sparkle_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/sparkle3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginBottom="182dp"
+        android:alpha="0.6"
+        android:animation="@anim/sparkle_anim_3"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAccessibility="no"
+        android:src="@drawable/sparkle_4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/sparkle4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="106dp"
+        android:alpha="0.65"
+        android:animation="@anim/sparkle_anim_4"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAccessibility="no"
+        android:src="@drawable/sparkle_6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/sparkle5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="232dp"
+        android:layout_marginEnd="16dp"
+        android:alpha="0.5"
+        android:animation="@anim/sparkle_anim_2"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAccessibility="no"
+        android:src="@drawable/sparkle_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/sparkle6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="304dp"
+        android:layout_marginStart="12dp"
+        android:alpha="0.5"
+        android:animation="@anim/sparkle_anim_3"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAccessibility="no"
+        android:src="@drawable/sparkle_5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/sparkle7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="406dp"
+        android:layout_marginEnd="30dp"
+        android:alpha="0.55"
+        android:animation="@anim/sparkle_anim_1"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAccessibility="no"
+        android:src="@drawable/sparkle_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/sparkle8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginBottom="56dp"
+        android:alpha="0.55"
+        android:animation="@anim/sparkle_anim_4"
+        android:clickable="false"
+        android:focusable="false"
+        android:importantForAccessibility="no"
+        android:src="@drawable/sparkle_3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/registerScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:paddingBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomActions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="4dp">
+
+            <ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/challengo_logo"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="26dp" />
+
+            <ImageView
+                android:id="@+id/ivRegisterAvatar"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/profile_avatar_inner_bg"
+                android:contentDescription="@string/register_profile_photo"
+                android:padding="2dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/challengo_avatar" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPickPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="18dp"
+                android:background="@drawable/profile_secondary_button_bg"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/register_add_photo"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                app:backgroundTint="@null" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/etFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/register_input_bg"
+                    android:gravity="center_vertical"
+                    android:hint="First Name"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:paddingHorizontal="24dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#B0B8C4" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/etLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/register_input_bg"
+                    android:gravity="center_vertical"
+                    android:hint="Last Name"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:paddingHorizontal="24dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#B0B8C4" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/etUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/register_input_bg"
+                    android:gravity="center_vertical"
+                    android:hint="Username"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:paddingHorizontal="24dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#B0B8C4" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/register_input_bg"
+                    android:gravity="center_vertical"
+                    android:hint="Email"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:paddingHorizontal="24dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#B0B8C4" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/register_input_bg"
+                    android:gravity="center_vertical"
+                    android:hint="Password"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPassword"
+                    android:paddingHorizontal="24dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#B0B8C4" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                app:hintEnabled="false">
+
+                <EditText
+                    android:id="@+id/etAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@drawable/register_input_bg"
+                    android:gravity="center_vertical"
+                    android:hint="Age"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:paddingHorizontal="24dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#B0B8C4" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottomActions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        android:paddingTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:alpha="0.35"
+            android:background="#2A3242" />
+
+        <FrameLayout
+            android:id="@+id/btnRegisterContainer"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/login_button_bg"
+                android:elevation="4dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="Register"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null" />
+
+            <View
+                android:id="@+id/registerGlossView"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="start|center_vertical"
+                android:alpha="1"
+                android:background="@drawable/login_button_gloss"
+                android:clickable="false"
+                android:elevation="8dp"
+                android:focusable="false"
+                android:importantForAccessibility="no"
+                android:rotation="24"
+                android:translationX="-220dp"
+                android:visibility="invisible" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/progressBar"
+                style="@style/ChallenGo.Loader.Small"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Already have an account? Login"
+            android:textColor="#1DE9FF"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
