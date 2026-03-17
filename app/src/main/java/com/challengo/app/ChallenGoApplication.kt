@@ -1,4 +1,4 @@
-package com.challengo.app
+package com.challengo.app.ui.viewmodel
 
 import android.app.Application
 
