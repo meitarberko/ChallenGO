@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="#1A2538"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="5dp"
+    app:strokeColor="#334DE8FF"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/ivProfileImage"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/profile_avatar_inner_bg"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/challengo_avatar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="Username"
+            android:textColor="#F4FAFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvTimeAgo"
+            app:layout_constraintStart_toEndOf="@+id/ivProfileImage"
+            app:layout_constraintTop_toTopOf="@+id/ivProfileImage" />
+
+        <TextView
+            android:id="@+id/tvTimeAgo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2h ago"
+            android:textColor="#93A9BF"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/tvUsername"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvUsername" />
+
+        <ImageView
+            android:id="@+id/ivPostImage"
+            android:layout_width="0dp"
+            android:layout_height="280dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/profile_avatar_inner_bg"
+            android:scaleType="centerCrop"
+            android:src="@drawable/challengo_avatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivProfileImage" />
+
+        <TextView
+            android:id="@+id/tvPostText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Post content"
+            android:textColor="#EAF6FF"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivPostImage" />
+
+        <TextView
+            android:id="@+id/tvHashtag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/hashtag_background"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="7dp"
+            android:text="#hashtag"
+            android:textColor="#62EFFF"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPostText" />
+
+        <LinearLayout
+            android:id="@+id/actionsRow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHashtag">
+
+            <LinearLayout
+                android:id="@+id/likeGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="4dp">
+
+                <ImageButton
+                    android:id="@+id/btnLike"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/like"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_heart_outline"
+                    app:tint="#8EA3B7" />
+
+                <TextView
+                    android:id="@+id/tvLikesCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="0"
+                    android:textColor="#DDEAF7"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/commentGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="20dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="4dp">
+
+                <ImageButton
+                    android:id="@+id/btnComment"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/comments"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_comment_bubble"
+                    app:tint="#8EA3B7" />
+
+                <TextView
+                    android:id="@+id/tvCommentsCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="0"
+                    android:textColor="#DDEAF7"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#00000000"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="6dp"
+        app:strokeColor="#474BE9FF"
+        app:strokeWidth="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/profile_header_bg"
+            android:padding="20dp">
+
+            <FrameLayout
+                android:id="@+id/avatarFrame"
+                android:layout_width="122dp"
+                android:layout_height="122dp"
+                android:layout_marginTop="44dp"
+                android:background="@drawable/profile_avatar_ring"
+                android:padding="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivProfileImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/profile_avatar_inner_bg"
+                    android:clipToOutline="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/challengo_avatar" />
+
+                <ImageView
+                    android:id="@+id/ivEditAvatar"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="end|bottom"
+                    android:layout_margin="4dp"
+                    android:alpha="0.9"
+                    android:background="@drawable/profile_edit_avatar_bg"
+                    android:clickable="true"
+                    android:contentDescription="@string/edit_profile"
+                    android:focusable="true"
+                    android:padding="4dp"
+                    android:src="@android:drawable/ic_menu_edit"
+                    app:tint="#E6FBFF" />
+            </FrameLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:minWidth="0dp"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/logout"
+                android:textAllCaps="true"
+                android:textColor="#FFE9E9"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeWidth="0dp"
+                android:background="@drawable/profile_logout_button_bg" />
+
+            <TextView
+                android:id="@+id/tvUsername"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:textColor="#F3FBFF"
+                android:textSize="29sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/avatarFrame" />
+
+            <TextView
+                android:id="@+id/tvLevel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:textColor="#9FB2C8"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvUsername" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="104dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#1C2940"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="4dp"
+            app:strokeColor="#4DFFF099"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvPoints"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#80F8FF"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:letterSpacing="0.08"
+                    android:text="@string/points_label"
+                    android:textAllCaps="true"
+                    android:textColor="#B6CBDE"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <Space
+            android:layout_width="12dp"
+            android:layout_height="0dp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="104dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#1C2940"
+            app:cardCornerRadius="22dp"
+            app:cardElevation="4dp"
+            app:strokeColor="#647A63FF"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvChallenges"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#BFA9FF"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:letterSpacing="0.06"
+                    android:text="@string/challenges_label"
+                    android:textAllCaps="true"
+                    android:textColor="#B6CBDE"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="#1A2538"
+        app:cardCornerRadius="22dp"
+        app:cardElevation="4dp"
+        app:strokeColor="#454BE9FF"
+        app:strokeWidth="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvHashtagsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hashtags_title"
+                android:textColor="#78F3FF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupHashtags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:chipSpacingHorizontal="8dp"
+                app:chipSpacingVertical="8dp"
+                app:singleLine="false" />
+
+            <TextView
+                android:id="@+id/tvHashtagsEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/hashtags_empty_state"
+                android:textColor="#93A7BD"
+                android:textSize="13sp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/challengo_avatar"
+            app:tint="#88EEFF" />
+
+        <TextView
+            android:id="@+id/tvMyPosts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/my_posts"
+            android:textColor="#E7F5FF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>
