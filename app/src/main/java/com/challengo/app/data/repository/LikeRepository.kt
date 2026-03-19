@@ -3,6 +3,7 @@ package com.challengo.app.data.repository
 import android.util.Log
 import com.challengo.app.data.local.dao.PostLikeDao
 import com.challengo.app.data.model.PostLike
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -28,6 +29,10 @@ class LikeRepository(
         return try {
             val likeId = userId
             val legacyLikeId = "${postId}_$userId"
+            Log.d(
+                TAG,
+                "event=sync_like_state_start authUid=${currentAuthUid() ?: "null"} postPath=posts/$postId likePath=posts/$postId/likes/$likeId legacyLikePath=posts/$postId/likes/$legacyLikeId requestedUid=$userId"
+            )
             val likeDoc = firestore.collection("posts").document(postId)
                 .collection("likes")
                 .document(likeId)
@@ -61,10 +66,15 @@ class LikeRepository(
                 "event=sync_like_state postId=$postId uid=$userId isLiked=$isLiked likeCount=${likeStateStore.value[postId]?.likesCount}"
             )
             isLiked
-        } catch (_: Exception) {
+        } catch (e: Exception) {
             val cachedLiked = postLikeDao.getUserLike(postId, userId) != null
             val fallbackCount = if (cachedLiked) max(1, currentLikesCount ?: likeStateStore.value[postId]?.likesCount ?: 0) else currentLikesCount
             upsertLikeState(postId, cachedLiked, fallbackCount)
+            Log.e(
+                TAG,
+                "event=sync_like_state_fail authUid=${currentAuthUid() ?: "null"} postPath=posts/$postId requestedUid=$userId message=${e.message}",
+                e
+            )
             cachedLiked
         }
     }
@@ -84,6 +94,10 @@ class LikeRepository(
             val legacyLikeRef = postRef.collection("likes").document(legacyLikeId)
             val now = System.currentTimeMillis()
             val beforeState = likeStateStore.value[postId]
+            Log.d(
+                TAG,
+                "event=toggle_like_start authUid=${currentAuthUid() ?: "null"} postPath=${postRef.path} likePath=${postRef.path}/likes/$likeId legacyLikePath=${postRef.path}/likes/$legacyLikeId requestedUid=$userId"
+            )
             val previousLiked = beforeState?.isLikedByMe ?: syncLikeState(postId, userId, currentLikesCount)
             val optimisticLiked = !previousLiked
             val optimisticCount = max(0, currentLikesCount + if (optimisticLiked) 1 else -1)
@@ -148,12 +162,20 @@ class LikeRepository(
                     .orEmpty()
                 if (postOwnerUid.isNotBlank() && postOwnerUid != userId) {
                     val actorUsername = notificationRepository.getActorUsername(userId)
-                    notificationRepository.createLikeNotification(
-                        targetUid = postOwnerUid,
-                        actorUid = userId,
-                        actorUsername = actorUsername,
-                        postId = postId
-                    )
+                    runCatching {
+                        notificationRepository.createLikeNotification(
+                            targetUid = postOwnerUid,
+                            actorUid = userId,
+                            actorUsername = actorUsername,
+                            postId = postId
+                        )
+                    }.onFailure { notificationError ->
+                        Log.w(
+                            TAG,
+                            "event=toggle_like_notification_fail authUid=${currentAuthUid() ?: "null"} notificationPath=users/$postOwnerUid/notifications targetUid=$postOwnerUid actorUid=$userId postId=$postId message=${notificationError.message}",
+                            notificationError
+                        )
+                    }
                 }
             } else {
                 postLikeDao.deleteLike(postId, userId)
@@ -217,6 +239,8 @@ class LikeRepository(
             0
         }
     }
+
+    private fun currentAuthUid(): String? = FirebaseAuth.getInstance().currentUser?.uid
 }
 
 data class LikeUiState(

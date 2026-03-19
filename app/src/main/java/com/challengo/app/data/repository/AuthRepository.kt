@@ -39,9 +39,22 @@ class AuthRepository(
     ): Result<FirebaseUser> {
         var createdAuthUser: FirebaseUser? = null
         return try {
+            Log.d(
+                TAG,
+                "event=register_start authUid=${currentAuthUid() ?: "null"} email=$email"
+            )
             val result = firebaseAuth.createUserWithEmailAndPassword(email, password).await()
             val user = result.user ?: return Result.failure(Exception("User creation failed"))
             createdAuthUser = user
+            Log.d(
+                TAG,
+                "event=register_auth_created returnedUid=${user.uid} currentAuthUid=${currentAuthUid() ?: "null"}"
+            )
+            user.getIdToken(true).await()
+            Log.d(
+                TAG,
+                "event=register_token_ready uid=${user.uid} currentAuthUid=${currentAuthUid() ?: "null"}"
+            )
             val profileImageUri = selectedImageUri?.toString()
             val usernameLower = username.trim().lowercase()
             reserveUsernameAndCreateProfile(
@@ -74,7 +87,11 @@ class AuthRepository(
             firebaseAuth.signOut()
             Result.failure(Exception(ERROR_EMAIL_ALREADY_REGISTERED))
         } catch (e: Exception) {
-            Log.e(TAG, "event=register_fail", e)
+            Log.e(
+                TAG,
+                "event=register_fail authUid=${currentAuthUid() ?: "null"} message=${e.message}",
+                e
+            )
             cleanupOrphanAuthUser(createdAuthUser)
             Result.failure(mapRegisterError(e))
         }
@@ -98,6 +115,10 @@ class AuthRepository(
 
     suspend fun loadUserData(uid: String) {
         try {
+            Log.d(
+                TAG,
+                "event=load_user_data_start authUid=${currentAuthUid() ?: "null"} path=users/$uid"
+            )
             val userDoc = firestore.collection("users").document(uid).get().await()
             if (userDoc.exists()) {
                 val user = User(
@@ -119,6 +140,10 @@ class AuthRepository(
                 )
                 userDao.insertUser(user)
             }
+            Log.d(
+                TAG,
+                "event=load_user_data_success authUid=${currentAuthUid() ?: "null"} path=users/$uid exists=${userDoc.exists()}"
+            )
         } catch (e: Exception) {
             Log.e(TAG, "event=load_user_data_fail uid=$uid", e)
         }
@@ -144,6 +169,10 @@ class AuthRepository(
     ) {
         val usernameRef = firestore.collection("usernames").document(usernameLower)
         val userRef = firestore.collection("users").document(user.uid)
+        Log.d(
+            TAG,
+            "event=reserve_profile_start authUid=${currentAuthUid() ?: "null"} usernamePath=${usernameRef.path} userPath=${userRef.path} targetUid=${user.uid}"
+        )
 
         firestore.runTransaction { transaction ->
             val usernameSnap = transaction.get(usernameRef)
@@ -198,6 +227,10 @@ class AuthRepository(
                 )
             )
         }.await()
+        Log.d(
+            TAG,
+            "event=reserve_profile_success authUid=${currentAuthUid() ?: "null"} usernamePath=${usernameRef.path} userPath=${userRef.path}"
+        )
     }
 
     private suspend fun cleanupOrphanAuthUser(createdAuthUser: FirebaseUser?) {
@@ -220,6 +253,8 @@ class AuthRepository(
             }
         }
     }
+
+    private fun currentAuthUid(): String? = firebaseAuth.currentUser?.uid
 }
 
 private class UsernameTakenException : RuntimeException("USERNAME_TAKEN")
