@@ -1,3 +1,5 @@
+package com.challengo.app.data.model
+
 import com.google.firebase.Timestamp
 
 data class AppNotification(

@@ -10,7 +10,7 @@ object RetrofitClient {
     private const val BASE_URL = "https://zenquotes.io/api/"
     
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
-        HttpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        level = HttpLoggingInterceptor.Level.BODY
     }
     
     private val okHttpClient = OkHttpClient.Builder()

@@ -4,6 +4,7 @@ import android.util.Log
 import com.challengo.app.data.local.dao.ChallengeDao
 import com.challengo.app.data.model.Challenge
 import com.challengo.app.data.model.DailyChallenge
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
@@ -28,13 +29,19 @@ class ChallengeRepository(
 
     suspend fun fetchRandomChallenge(): Result<Challenge> {
         return try {
-            Log.d(TAG, "Fetching challenges from collection='$COLLECTION_CHALLENGES' filter active=true")
+            Log.d(
+                TAG,
+                "event=fetch_random_challenge_start authUid=${currentAuthUid() ?: "null"} path=$COLLECTION_CHALLENGES query=active:true"
+            )
             val snapshot = firestore.collection(COLLECTION_CHALLENGES)
                 .whereEqualTo("active", true)
                 .get()
                 .await()
 
-            Log.d(TAG, "Fetched active challenges count=${snapshot.size()}")
+            Log.d(
+                TAG,
+                "event=fetch_random_challenge_success authUid=${currentAuthUid() ?: "null"} path=$COLLECTION_CHALLENGES resultCount=${snapshot.size()}"
+            )
 
             val challenges = snapshot.documents.mapNotNull { doc ->
                 val name = doc.getString("name")?.trim().orEmpty()
@@ -59,13 +66,20 @@ class ChallengeRepository(
             }
 
             if (challenges.isEmpty()) {
-                Log.w(TAG, "No active challenge documents matched expected schema. Returning explicit empty message.")
+                Log.w(
+                    TAG,
+                    "event=fetch_random_challenge_empty authUid=${currentAuthUid() ?: "null"} path=$COLLECTION_CHALLENGES reason=no_matching_docs_or_schema"
+                )
                 Result.failure(Exception(NO_CHALLENGES_MESSAGE))
             } else {
                 Result.success(challenges.random())
             }
         } catch (e: Exception) {
-            Log.e(TAG, "Failed to fetch active challenges from Firestore", e)
+            Log.e(
+                TAG,
+                "event=fetch_random_challenge_fail authUid=${currentAuthUid() ?: "null"} path=$COLLECTION_CHALLENGES query=active:true message=${e.message}",
+                e
+            )
             Result.failure(Exception(NO_CHALLENGES_MESSAGE))
         }
     }
@@ -98,6 +112,10 @@ class ChallengeRepository(
 
     suspend fun rollDailyChallenge(userId: String): Result<DailyChallenge> {
         return try {
+            Log.d(
+                TAG,
+                "event=roll_daily_challenge_start authUid=${currentAuthUid() ?: "null"} userId=$userId userPath=users/$userId"
+            )
             val existing = challengeDao.getDailyChallengeSync(userId)
             if (existing != null && !existing.isExpired()) {
                 return Result.success(existing)
@@ -140,8 +158,17 @@ class ChallengeRepository(
                     SetOptions.merge()
                 )
                 .await()
+            Log.d(
+                TAG,
+                "event=roll_daily_challenge_success authUid=${currentAuthUid() ?: "null"} userId=$userId challengeId=${dailyChallenge.challengeId} userPath=users/$userId"
+            )
             Result.success(dailyChallenge)
         } catch (e: Exception) {
+            Log.e(
+                TAG,
+                "event=roll_daily_challenge_fail authUid=${currentAuthUid() ?: "null"} userId=$userId userPath=users/$userId message=${e.message}",
+                e
+            )
             Result.failure(e)
         }
     }
@@ -299,6 +326,8 @@ class ChallengeRepository(
             else -> 10
         }
     }
+
+    private fun currentAuthUid(): String? = FirebaseAuth.getInstance().currentUser?.uid
 }
 
 data class CompleteChallengeResult(

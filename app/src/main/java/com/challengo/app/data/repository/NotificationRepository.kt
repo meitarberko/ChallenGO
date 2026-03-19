@@ -1,6 +1,8 @@
 package com.challengo.app.data.repository
 
+import android.util.Log
 import com.challengo.app.data.model.AppNotification
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
@@ -16,6 +18,7 @@ class NotificationRepository(
     private val firestore: FirebaseFirestore
 ) {
     companion object {
+        private const val TAG = "NotificationRepo"
         const val TYPE_COMMENT = "COMMENT"
         const val TYPE_LIKE = "LIKE"
         const val TYPE_REMINDER_CHALLENGE_NOT_DONE = "REMINDER_CHALLENGE_NOT_DONE"
@@ -209,6 +212,10 @@ class NotificationRepository(
         val trimmedUid = targetUid.trim()
         if (trimmedUid.isEmpty()) return
         val id = UUID.randomUUID().toString()
+        Log.d(
+            TAG,
+            "event=create_notification_start authUid=${currentAuthUid() ?: "null"} path=users/$trimmedUid/notifications/$id type=$type actorUid=${actorUid ?: "null"}"
+        )
         val data = hashMapOf<String, Any?>(
             "id" to id,
             "type" to type,
@@ -224,6 +231,10 @@ class NotificationRepository(
         )
         data.putAll(extraFields)
         notificationsCollection(trimmedUid).document(id).set(data).await()
+        Log.d(
+            TAG,
+            "event=create_notification_success authUid=${currentAuthUid() ?: "null"} path=users/$trimmedUid/notifications/$id type=$type"
+        )
     }
 
     suspend fun getActorUsername(uid: String): String {
@@ -243,6 +254,8 @@ class NotificationRepository(
 
     private fun notificationsCollection(uid: String) =
         firestore.collection("users").document(uid).collection("notifications")
+
+    private fun currentAuthUid(): String? = FirebaseAuth.getInstance().currentUser?.uid
 
     private fun buildCommentPreview(text: String): String {
         val normalized = text.trim().replace("\\s+".toRegex(), " ")

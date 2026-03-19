@@ -1,7 +1,9 @@
 package com.challengo.app.data.repository
 
+import android.util.Log
 import com.challengo.app.data.local.dao.CommentDao
 import com.challengo.app.data.model.Comment
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.tasks.await
@@ -12,6 +14,10 @@ class CommentRepository(
     private val commentDao: CommentDao,
     private val notificationRepository: NotificationRepository
 ) {
+    companion object {
+        private const val TAG = "CommentRepository"
+    }
+
     suspend fun addComment(
         postId: String,
         userId: String,
@@ -20,6 +26,10 @@ class CommentRepository(
         text: String
     ): Result<Comment> {
         return try {
+            Log.d(
+                TAG,
+                "event=add_comment_start authUid=${currentAuthUid() ?: "null"} postPath=posts/$postId commentsPath=posts/$postId/comments requestedUid=$userId"
+            )
             val resolvedUsername = resolveUsername(userId, username, mutableMapOf())
             val commentId = UUID.randomUUID().toString()
             val comment = Comment(
@@ -55,19 +65,36 @@ class CommentRepository(
                 .getString("userId")
                 .orEmpty()
             if (postOwnerUid.isNotBlank() && postOwnerUid != userId) {
-                notificationRepository.createCommentNotification(
-                    targetUid = postOwnerUid,
-                    actorUid = userId,
-                    actorUsername = resolvedUsername,
-                    postId = postId,
-                    commentText = comment.text
-                )
+                runCatching {
+                    notificationRepository.createCommentNotification(
+                        targetUid = postOwnerUid,
+                        actorUid = userId,
+                        actorUsername = resolvedUsername,
+                        postId = postId,
+                        commentText = comment.text
+                    )
+                }.onFailure { notificationError ->
+                    Log.w(
+                        TAG,
+                        "event=add_comment_notification_fail authUid=${currentAuthUid() ?: "null"} notificationPath=users/$postOwnerUid/notifications targetUid=$postOwnerUid actorUid=$userId postId=$postId message=${notificationError.message}",
+                        notificationError
+                    )
+                }
             }
 
             commentDao.insertComment(comment)
 
+            Log.d(
+                TAG,
+                "event=add_comment_success authUid=${currentAuthUid() ?: "null"} commentPath=posts/$postId/comments/$commentId requestedUid=$userId"
+            )
             Result.success(comment)
         } catch (e: Exception) {
+            Log.e(
+                TAG,
+                "event=add_comment_fail authUid=${currentAuthUid() ?: "null"} postPath=posts/$postId commentsPath=posts/$postId/comments requestedUid=$userId message=${e.message}",
+                e
+            )
             Result.failure(e)
         }
     }
@@ -78,6 +105,10 @@ class CommentRepository(
 
     suspend fun syncCommentsFromFirestore(postId: String) {
         try {
+            Log.d(
+                TAG,
+                "event=sync_comments_start authUid=${currentAuthUid() ?: "null"} commentsPath=posts/$postId/comments"
+            )
             val snapshot = firestore.collection("posts").document(postId)
                 .collection("comments")
                 .orderBy("timestamp", com.google.firebase.firestore.Query.Direction.ASCENDING)
@@ -103,6 +134,11 @@ class CommentRepository(
 
             commentDao.insertComments(comments)
         } catch (e: Exception) {
+            Log.e(
+                TAG,
+                "event=sync_comments_fail authUid=${currentAuthUid() ?: "null"} commentsPath=posts/$postId/comments message=${e.message}",
+                e
+            )
         }
     }
 
@@ -134,4 +170,6 @@ class CommentRepository(
             "Unknown user"
         }
     }
+
+    private fun currentAuthUid(): String? = FirebaseAuth.getInstance().currentUser?.uid
 }
