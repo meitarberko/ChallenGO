@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Callback
 import com.challengo.app.R
 import com.challengo.app.data.model.Post
 import com.squareup.picasso.Picasso
@@ -40,6 +41,11 @@ class PostAdapter(
         holder.bind(getItem(position))
     }
 
+    override fun onViewRecycled(holder: PostViewHolder) {
+        holder.recycle()
+        super.onViewRecycled(holder)
+    }
+
     inner class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val ivProfileImage: ImageView = itemView.findViewById(R.id.ivProfileImage)
         private val tvUsername: TextView = itemView.findViewById(R.id.tvUsername)
@@ -62,6 +68,9 @@ class PostAdapter(
             tvLikesCount.text = post.likesCount.toString()
             tvCommentsCount.text = post.commentsCount.toString()
 
+            Picasso.get().cancelRequest(ivProfileImage)
+            Picasso.get().cancelRequest(ivPostImage)
+
             if (post.userProfileImageUri.isNullOrBlank()) {
                 ivProfileImage.setImageResource(R.drawable.challengo_avatar)
             } else {
@@ -73,13 +82,19 @@ class PostAdapter(
             }
 
             if (post.postImageUri.isNullOrBlank()) {
-                ivPostImage.setImageResource(R.drawable.challengo_avatar)
+                ivPostImage.setImageDrawable(null)
             } else {
                 Picasso.get()
                     .load(Uri.parse(post.postImageUri))
-                    .placeholder(R.drawable.challengo_avatar)
-                    .error(R.drawable.challengo_avatar)
-                    .into(ivPostImage)
+                    .noPlaceholder()
+                    .error(R.drawable.post_image_placeholder)
+                    .into(ivPostImage, object : Callback {
+                        override fun onSuccess() = Unit
+
+                        override fun onError(e: Exception?) {
+                            ivPostImage.setImageResource(R.drawable.post_image_placeholder)
+                        }
+                    })
             }
 
             val isLiked = likedPostIds.contains(post.id)
@@ -92,6 +107,13 @@ class PostAdapter(
             btnLike.setOnClickListener { likeGroup.performClick() }
             commentGroup.setOnClickListener { onCommentClick(post) }
             btnComment.setOnClickListener { commentGroup.performClick() }
+        }
+
+        fun recycle() {
+            Picasso.get().cancelRequest(ivProfileImage)
+            Picasso.get().cancelRequest(ivPostImage)
+            ivProfileImage.setImageDrawable(null)
+            ivPostImage.setImageDrawable(null)
         }
 
         private fun applyLikeVisual(isLiked: Boolean) {

@@ -13,6 +13,7 @@ import com.challengo.app.data.model.Post
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 
 class ProfileContentAdapter(
@@ -65,6 +66,14 @@ class ProfileContentAdapter(
         }
     }
 
+    override fun onViewRecycled(holder: RecyclerView.ViewHolder) {
+        when (holder) {
+            is HeaderViewHolder -> holder.recycle()
+            is PostViewHolder -> holder.recycle()
+        }
+        super.onViewRecycled(holder)
+    }
+
     fun submitHeader(state: ProfileHeaderState) {
         headerState = state
         notifyItemChanged(0)
@@ -87,6 +96,7 @@ class ProfileContentAdapter(
         private val btnLogout: MaterialButton = itemView.findViewById(R.id.btnLogout)
 
         fun bind(state: ProfileHeaderState) {
+            Picasso.get().cancelRequest(ivProfileImage)
             tvUsername.text = state.username
             tvLevel.text = "Adventure Seeker \u2022 Lv ${state.level}"
             tvPoints.text = state.points.toString()
@@ -126,22 +136,39 @@ class ProfileContentAdapter(
             ivEditAvatar.setOnClickListener { onEditProfileClick() }
             btnLogout.setOnClickListener { onLogoutClick() }
         }
+
+        fun recycle() {
+            Picasso.get().cancelRequest(ivProfileImage)
+            ivProfileImage.setImageDrawable(null)
+        }
     }
 
     private inner class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val ivPostImage: ImageView = itemView.findViewById(R.id.ivGridPostImage)
 
         fun bind(post: Post) {
+            Picasso.get().cancelRequest(ivPostImage)
             if (post.postImageUri.isNullOrBlank()) {
-                ivPostImage.setImageResource(R.drawable.challengo_avatar)
+                ivPostImage.setImageDrawable(null)
             } else {
                 Picasso.get()
                     .load(Uri.parse(post.postImageUri))
-                    .placeholder(R.drawable.challengo_avatar)
-                    .error(R.drawable.challengo_avatar)
-                    .into(ivPostImage)
+                    .noPlaceholder()
+                    .error(R.drawable.post_image_placeholder)
+                    .into(ivPostImage, object : Callback {
+                        override fun onSuccess() = Unit
+
+                        override fun onError(e: Exception?) {
+                            ivPostImage.setImageResource(R.drawable.post_image_placeholder)
+                        }
+                    })
             }
             itemView.setOnClickListener { onPostClick(post) }
+        }
+
+        fun recycle() {
+            Picasso.get().cancelRequest(ivPostImage)
+            ivPostImage.setImageDrawable(null)
         }
     }
 
