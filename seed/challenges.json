@@ -1,0 +1,702 @@
+[
+  {
+    "name": "Gratitude Journaling",
+    "description": "Write down three things you are grateful for today.",
+    "difficulty": "easy",
+    "hashtag": "gratitude",
+    "points": 10
+  },
+  {
+    "name": "Quick Room Tidy",
+    "description": "Spend 5 minutes decluttering your immediate workspace.",
+    "difficulty": "easy",
+    "hashtag": "cleaning",
+    "points": 10
+  },
+  {
+    "name": "Hydration Hero",
+    "description": "Drink at least 8 glasses of water throughout the day.",
+    "difficulty": "easy",
+    "hashtag": "health",
+    "points": 10
+  },
+  {
+    "name": "Compliment a Peer",
+    "description": "Give a genuine compliment to a classmate or friend.",
+    "difficulty": "easy",
+    "hashtag": "kindness",
+    "points": 10
+  },
+  {
+    "name": "Family Tech-Free Meal",
+    "description": "Eat one meal with your family without any phones at the table.",
+    "difficulty": "easy",
+    "hashtag": "family",
+    "points": 10
+  },
+  {
+    "name": "Pick Up 5",
+    "description": "Find and dispose of 5 pieces of litter in your neighborhood safely.",
+    "difficulty": "easy",
+    "hashtag": "environment",
+    "points": 10
+  },
+  {
+    "name": "Focus Session",
+    "description": "Study for 25 minutes without any distractions (Pomodoro style).",
+    "difficulty": "easy",
+    "hashtag": "study",
+    "points": 10
+  },
+  {
+    "name": "Mirror Pep Talk",
+    "description": "Tell yourself three positive affirmations in the mirror.",
+    "difficulty": "easy",
+    "hashtag": "selfcare",
+    "points": 10
+  },
+  {
+    "name": "Text an Old Friend",
+    "description": "Reach out to a friend you haven't spoken to in a while.",
+    "difficulty": "easy",
+    "hashtag": "friends",
+    "points": 10
+  },
+  {
+    "name": "Hold the Door",
+    "description": "Hold the door open for people behind you today.",
+    "difficulty": "easy",
+    "hashtag": "community",
+    "points": 10
+  },
+  {
+    "name": "Stair Master",
+    "description": "Take the stairs instead of the elevator for the whole day.",
+    "difficulty": "easy",
+    "hashtag": "health",
+    "points": 10
+  },
+  {
+    "name": "Dish Duty",
+    "description": "Help wash the dishes or load the dishwasher after dinner.",
+    "difficulty": "easy",
+    "hashtag": "cleaning",
+    "points": 10
+  },
+  {
+    "name": "Light Switch Check",
+    "description": "Ensure all lights are off when leaving a room all day.",
+    "difficulty": "easy",
+    "hashtag": "environment",
+    "points": 10
+  },
+  {
+    "name": "Smile Spark",
+    "description": "Smile at at least 5 people you pass by today.",
+    "difficulty": "easy",
+    "hashtag": "kindness",
+    "points": 10
+  },
+  {
+    "name": "Vocabulary Boost",
+    "description": "Learn one new word and use it in a conversation today.",
+    "difficulty": "easy",
+    "hashtag": "study",
+    "points": 10
+  },
+  {
+    "name": "Deep Breathing",
+    "description": "Take 2 minutes to practice deep rhythmic breathing.",
+    "difficulty": "easy",
+    "hashtag": "selfcare",
+    "points": 10
+  },
+  {
+    "name": "Morning Stretch",
+    "description": "Do a 5-minute full-body stretch right after waking up.",
+    "difficulty": "easy",
+    "hashtag": "health",
+    "points": 10
+  },
+  {
+    "name": "Note of Thanks",
+    "description": "Leave a 'thank you' sticky note for a family member or teacher.",
+    "difficulty": "easy",
+    "hashtag": "gratitude",
+    "points": 10
+  },
+  {
+    "name": "Desk Refresh",
+    "description": "Wipe down your computer keyboard and desk surface.",
+    "difficulty": "easy",
+    "hashtag": "cleaning",
+    "points": 10
+  },
+  {
+    "name": "Digital Cleanse",
+    "description": "Delete 10 old or unnecessary photos from your phone.",
+    "difficulty": "easy",
+    "hashtag": "selfcare",
+    "points": 10
+  },
+  {
+    "name": "Local Support",
+    "description": "Visit or share a post from a local small business.",
+    "difficulty": "easy",
+    "hashtag": "community",
+    "points": 10
+  },
+  {
+    "name": "Plant Care",
+    "description": "Water your plants or check on a nearby green space.",
+    "difficulty": "easy",
+    "hashtag": "environment",
+    "points": 10
+  },
+  {
+    "name": "Check in with Family",
+    "description": "Send a nice message to a parent or sibling during the day.",
+    "difficulty": "easy",
+    "hashtag": "family",
+    "points": 10
+  },
+  {
+    "name": "Encouragement Note",
+    "description": "Write a short message of encouragement to a friend.",
+    "difficulty": "easy",
+    "hashtag": "friends",
+    "points": 10
+  },
+  {
+    "name": "Bag Check",
+    "description": "Clean out your backpack or handbag of old receipts and trash.",
+    "difficulty": "easy",
+    "hashtag": "cleaning",
+    "points": 10
+  },
+  {
+    "name": "Nature Appreciation",
+    "description": "Spend 5 minutes observing the sky or a local tree.",
+    "difficulty": "easy",
+    "hashtag": "gratitude",
+    "points": 10
+  },
+  {
+    "name": "Book Worm",
+    "description": "Read at least 10 pages of a book for fun.",
+    "difficulty": "easy",
+    "hashtag": "study",
+    "points": 10
+  },
+  {
+    "name": "Kind Review",
+    "description": "Leave a positive 5-star review for a place you love.",
+    "difficulty": "easy",
+    "hashtag": "community",
+    "points": 10
+  },
+  {
+    "name": "Reusable Bottle",
+    "description": "Use a reusable water bottle all day long.",
+    "difficulty": "easy",
+    "hashtag": "environment",
+    "points": 10
+  },
+  {
+    "name": "Positive Post-it",
+    "description": "Leave an encouraging note in a library book or public board.",
+    "difficulty": "easy",
+    "hashtag": "kindness",
+    "points": 10
+  },
+  {
+    "name": "Bed Maker",
+    "description": "Make your bed as soon as you get up.",
+    "difficulty": "easy",
+    "hashtag": "cleaning",
+    "points": 10
+  },
+  {
+    "name": "Heart React",
+    "description": "Leave positive comments on 3 friends' social media posts.",
+    "difficulty": "easy",
+    "hashtag": "friends",
+    "points": 10
+  },
+  {
+    "name": "Screen Energy Saver",
+    "description": "Turn down your screen brightness to save energy today.",
+    "difficulty": "easy",
+    "hashtag": "environment",
+    "points": 10
+  },
+  {
+    "name": "Flashcard Finish",
+    "description": "Review 15 flashcards for a subject you are learning.",
+    "difficulty": "easy",
+    "hashtag": "study",
+    "points": 10
+  },
+  {
+    "name": "Healthy Snack Swap",
+    "description": "Choose a piece of fruit instead of a processed snack today.",
+    "difficulty": "easy",
+    "hashtag": "health",
+    "points": 10
+  },
+  {
+    "name": "Sugar-Free Drink Day",
+    "description": "Avoid sodas and sugary energy drinks for 24 hours.",
+    "difficulty": "medium",
+    "hashtag": "health",
+    "points": 10
+  },
+  {
+    "name": "Deep Closet Clean",
+    "description": "Organize one entire closet and set aside items to donate.",
+    "difficulty": "medium",
+    "hashtag": "cleaning",
+    "points": 10
+  },
+  {
+    "name": "Meatless Meal",
+    "description": "Try a plant-based alternative for at least one meal today.",
+    "difficulty": "medium",
+    "hashtag": "environment",
+    "points": 10
+  },
+  {
+    "name": "Active Commute",
+    "description": "Walk or bike for a trip instead of getting a ride (if safe).",
+    "difficulty": "medium",
+    "hashtag": "environment",
+    "points": 10
+  },
+  {
+    "name": "Podcast Learner",
+    "description": "Listen to an educational podcast episode and share a fact from it.",
+    "difficulty": "medium",
+    "hashtag": "study",
+    "points": 10
+  },
+  {
+    "name": "Neighborhood Cleanup",
+    "description": "Spend 20 minutes picking up trash in a local park with gloves.",
+    "difficulty": "medium",
+    "hashtag": "community",
+    "points": 10
+  },
+  {
+    "name": "Handwritten Letter",
+    "description": "Write a physical letter to a relative and mail it.",
+    "difficulty": "medium",
+    "hashtag": "family",
+    "points": 10
+  },
+  {
+    "name": "Social Media Break",
+    "description": "Stay off social media for 4 hours during the day.",
+    "difficulty": "medium",
+    "hashtag": "selfcare",
+    "points": 10
+  },
+  {
+    "name": "Healthy Meal Prep",
+    "description": "Prepare a healthy lunch for yourself for tomorrow.",
+    "difficulty": "medium",
+    "hashtag": "health",
+    "points": 10
+  },
+  {
+    "name": "Family Storytime",
+    "description": "Ask a family member to tell you a story about their past.",
+    "difficulty": "medium",
+    "hashtag": "family",
+    "points": 10
+  },
+  {
+    "name": "Active Listening",
+    "description": "Have a conversation where you focus entirely on the other person.",
+    "difficulty": "medium",
+    "hashtag": "friends",
+    "points": 10
+  },
+  {
+    "name": "Inbox Cleanup",
+    "description": "Unsubscribe from 10 junk emails and organize your inbox.",
+    "difficulty": "medium",
+    "hashtag": "cleaning",
+    "points": 10
+  },
+  {
+    "name": "Pay It Forward",
+    "description": "Do a small favor for someone without them asking.",
+    "difficulty": "medium",
+    "hashtag": "kindness",
+    "points": 10
+  },
+  {
+    "name": "New Skill Session",
+    "description": "Spend 45 minutes practicing a new hobby or creative skill.",
+    "difficulty": "medium",
+    "hashtag": "study",
+    "points": 10
+  },
+  {
+    "name": "Mindful Walk",
+    "description": "Go for a 20-minute walk without your phone.",
+    "difficulty": "medium",
+    "hashtag": "selfcare",
+    "points": 10
+  },
+  {
+    "name": "Handmade Appreciation",
+    "description": "Create a small craft or drawing for a friend.",
+    "difficulty": "medium",
+    "hashtag": "friends",
+    "points": 10
+  },
+  {
+    "name": "Waste Reduction Day",
+    "description": "Try to use zero disposable items (straws, cups) for one day.",
+    "difficulty": "medium",
+    "hashtag": "environment",
+    "points": 10
+  },
+  {
+    "name": "Help a Neighbor",
+    "description": "Offer to help a neighbor with a small task like carrying groceries.",
+    "difficulty": "medium",
+    "hashtag": "community",
+    "points": 10
+  },
+  {
+    "name": "Family Game Hour",
+    "description": "Invite your family to play a board or card game.",
+    "difficulty": "medium",
+    "hashtag": "family",
+    "points": 10
+  },
+  {
+    "name": "Happiness List",
+    "description": "Write a list of 25 small things that make you smile.",
+    "difficulty": "medium",
+    "hashtag": "gratitude",
+    "points": 10
+  },
+  {
+    "name": "Shelf Organization",
+    "description": "Organize your bookshelf or a common area shelf.",
+    "difficulty": "medium",
+    "hashtag": "cleaning",
+    "points": 10
+  },
+  {
+    "name": "Self-Reflection",
+    "description": "Spend 15 minutes journaling about your goals.",
+    "difficulty": "medium",
+    "hashtag": "selfcare",
+    "points": 10
+  },
+  {
+    "name": "Group Encouragement",
+    "description": "Send a positive group message to your friends.",
+    "difficulty": "medium",
+    "hashtag": "friends",
+    "points": 10
+  },
+  {
+    "name": "Article Summary",
+    "description": "Read a news article and explain the main points to a friend.",
+    "difficulty": "medium",
+    "hashtag": "study",
+    "points": 10
+  },
+  {
+    "name": "Home Yoga",
+    "description": "Follow a 20-minute beginner yoga video.",
+    "difficulty": "medium",
+    "hashtag": "health",
+    "points": 10
+  },
+  {
+    "name": "Photo Scavenger Hunt",
+    "description": "Take 5 photos of nature found in your city.",
+    "difficulty": "medium",
+    "hashtag": "environment",
+    "points": 10
+  },
+  {
+    "name": "Teacher Appreciation",
+    "description": "Send a short email to a teacher thanking them for a lesson.",
+    "difficulty": "medium",
+    "hashtag": "study",
+    "points": 10
+  },
+  {
+    "name": "Cook for Family",
+    "description": "Help cook a healthy dinner for the whole family.",
+    "difficulty": "medium",
+    "hashtag": "family",
+    "points": 10
+  },
+  {
+    "name": "Donation Box",
+    "description": "Fill a small box with old clothes or books for charity.",
+    "difficulty": "medium",
+    "hashtag": "community",
+    "points": 10
+  },
+  {
+    "name": "Positive Social Media",
+    "description": "Post one encouraging or educational thing online.",
+    "difficulty": "medium",
+    "hashtag": "community",
+    "points": 10
+  },
+  {
+    "name": "Meditation Mini-Streak",
+    "description": "Meditate for 5 minutes every day for 3 days.",
+    "difficulty": "medium",
+    "hashtag": "selfcare",
+    "points": 10
+  },
+  {
+    "name": "No-Phone Wakeup",
+    "description": "Don't look at your phone for the first 30 minutes of your day.",
+    "difficulty": "medium",
+    "hashtag": "selfcare",
+    "points": 10
+  },
+  {
+    "name": "Recycling Sort",
+    "description": "Properly sort your household's recycling bin.",
+    "difficulty": "medium",
+    "hashtag": "environment",
+    "points": 10
+  },
+  {
+    "name": "Friendship Catch-up",
+    "description": "Call a friend for a 15-minute voice chat.",
+    "difficulty": "medium",
+    "hashtag": "friends",
+    "points": 10
+  },
+  {
+    "name": "Laundry Helper",
+    "description": "Help fold and put away a full load of laundry.",
+    "difficulty": "medium",
+    "hashtag": "cleaning",
+    "points": 10
+  },
+  {
+    "name": "Daily Movement Goal",
+    "description": "Reach a moderate step goal (e.g. 8,000 steps) for the day.",
+    "difficulty": "hard",
+    "hashtag": "health",
+    "points": 10
+  },
+  {
+    "name": "Week of Gratitude",
+    "description": "Write one thing you are thankful for every day for 7 days.",
+    "difficulty": "hard",
+    "hashtag": "gratitude",
+    "points": 10
+  },
+  {
+    "name": "Weekend Volunteer",
+    "description": "Spend 2 hours helping at a local animal shelter or food bank.",
+    "difficulty": "hard",
+    "hashtag": "community",
+    "points": 10
+  },
+  {
+    "name": "Deep Room Reset",
+    "description": "Vacuum, dust, and reorganize your entire bedroom.",
+    "difficulty": "hard",
+    "hashtag": "cleaning",
+    "points": 10
+  },
+  {
+    "name": "Topic Mastery",
+    "description": "Research a new topic for 2 hours and write a summary.",
+    "difficulty": "hard",
+    "hashtag": "study",
+    "points": 10
+  },
+  {
+    "name": "Fitness Habit",
+    "description": "Complete a 30-minute workout 3 times in one week.",
+    "difficulty": "hard",
+    "hashtag": "health",
+    "points": 10
+  },
+  {
+    "name": "Plastic-Free Week",
+    "description": "Avoid all single-use plastic bottles and bags for 7 days.",
+    "difficulty": "hard",
+    "hashtag": "environment",
+    "points": 10
+  },
+  {
+    "name": "Conflict Resolver",
+    "description": "Apologize or resolve a small misunderstanding with a friend.",
+    "difficulty": "hard",
+    "hashtag": "kindness",
+    "points": 10
+  },
+  {
+    "name": "Family Event Planner",
+    "description": "Fully plan a fun family weekend activity or outing.",
+    "difficulty": "hard",
+    "hashtag": "family",
+    "points": 10
+  },
+  {
+    "name": "Class Presentation",
+    "description": "Volunteer to be the first to present or speak in class.",
+    "difficulty": "hard",
+    "hashtag": "study",
+    "points": 10
+  },
+  {
+    "name": "Community Support Hero",
+    "description": "Participate in a local charity walk or community event.",
+    "difficulty": "hard",
+    "hashtag": "community",
+    "points": 10
+  },
+  {
+    "name": "New Daily Habit",
+    "description": "Stick to a new positive habit every day for 10 days.",
+    "difficulty": "hard",
+    "hashtag": "selfcare",
+    "points": 10
+  },
+  {
+    "name": "Deep Work Saturday",
+    "description": "Dedicate 3 hours to catching up on all school assignments.",
+    "difficulty": "hard",
+    "hashtag": "study",
+    "points": 10
+  },
+  {
+    "name": "Care Package Creator",
+    "description": "Make 3 small kits with snacks and socks for a local shelter.",
+    "difficulty": "hard",
+    "hashtag": "kindness",
+    "points": 10
+  },
+  {
+    "name": "Social Connector",
+    "description": "Introduce two friends who don't know each other yet.",
+    "difficulty": "hard",
+    "hashtag": "friends",
+    "points": 10
+  },
+  {
+    "name": "Digital Organization",
+    "description": "Organize all your school files and folders on your computer.",
+    "difficulty": "hard",
+    "hashtag": "cleaning",
+    "points": 10
+  },
+  {
+    "name": "Family Heritage Project",
+    "description": "Create a basic family tree with at least 10 members.",
+    "difficulty": "hard",
+    "hashtag": "family",
+    "points": 10
+  },
+  {
+    "name": "Eco-Friendly Lifestyle",
+    "description": "Research and implement 3 new ways to save energy at home.",
+    "difficulty": "hard",
+    "hashtag": "environment",
+    "points": 10
+  },
+  {
+    "name": "Consistency King",
+    "description": "Do 20 pushups or a 2-minute plank every day for a week.",
+    "difficulty": "hard",
+    "hashtag": "health",
+    "points": 10
+  },
+  {
+    "name": "Morning Person",
+    "description": "Wake up 30 minutes earlier than usual for 5 days in a row.",
+    "difficulty": "hard",
+    "hashtag": "selfcare",
+    "points": 10
+  },
+  {
+    "name": "Event Organizer",
+    "description": "Organize a group study session or a sports meet-up.",
+    "difficulty": "hard",
+    "hashtag": "community",
+    "points": 10
+  },
+  {
+    "name": "Language Learner",
+    "description": "Complete a 10-day streak on a language learning app.",
+    "difficulty": "hard",
+    "hashtag": "study",
+    "points": 10
+  },
+  {
+    "name": "Weekend Digital Detox",
+    "description": "Spend a full Saturday without any social media or video games.",
+    "difficulty": "hard",
+    "hashtag": "selfcare",
+    "points": 10
+  },
+  {
+    "name": "Kindness Ninja",
+    "description": "Perform 5 anonymous kind acts for others in one weekend.",
+    "difficulty": "hard",
+    "hashtag": "kindness",
+    "points": 10
+  },
+  {
+    "name": "Creative Room Upgrade",
+    "description": "DIY a new piece of decor for your room or repaint a shelf.",
+    "difficulty": "hard",
+    "hashtag": "cleaning",
+    "points": 10
+  },
+  {
+    "name": "Vision Board",
+    "description": "Create a physical or digital board of your 1-year goals.",
+    "difficulty": "hard",
+    "hashtag": "gratitude",
+    "points": 10
+  },
+  {
+    "name": "Family Reunion Lead",
+    "description": "Organize a video call or dinner for extended family members.",
+    "difficulty": "hard",
+    "hashtag": "family",
+    "points": 10
+  },
+  {
+    "name": "Friendship Group Lead",
+    "description": "Organize a weekly group chat or hangout for your friends.",
+    "difficulty": "hard",
+    "hashtag": "friends",
+    "points": 10
+  },
+  {
+    "name": "Tree Planting Volunteer",
+    "description": "Find and join a local tree-planting or garden event.",
+    "difficulty": "hard",
+    "hashtag": "environment",
+    "points": 10
+  },
+  {
+    "name": "Letter to the Editor",
+    "description": "Write a letter to a school or local paper about a positive change.",
+    "difficulty": "hard",
+    "hashtag": "community",
+    "points": 10
+  }
+]
