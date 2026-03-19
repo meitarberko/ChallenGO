@@ -1,6 +1,7 @@
-package com.challengo.app.ui.viewmodel
+package com.challengo.app
 
 import android.app.Application
+import com.challengo.app.notifications.NotificationHelper
 
 class ChallenGoApplication : Application() {
     override fun onCreate() {

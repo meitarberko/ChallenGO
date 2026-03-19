@@ -1,3 +1,5 @@
+package com.challengo.app.ui.viewmodel
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.challengo.app.data.model.DailyChallenge
