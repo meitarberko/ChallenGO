@@ -206,13 +206,14 @@ class PostDetailsFragment : Fragment() {
                                 .error(R.drawable.challengo_avatar)
                                 .into(binding.postCard.ivProfileImage)
                         }
+                        Picasso.get().cancelRequest(binding.postCard.ivPostImage)
                         if (post.postImageUri.isNullOrBlank()) {
-                            binding.postCard.ivPostImage.setImageResource(R.drawable.challengo_avatar)
+                            binding.postCard.ivPostImage.setImageDrawable(null)
                         } else {
                             Picasso.get()
                                 .load(Uri.parse(post.postImageUri))
-                                .placeholder(R.drawable.challengo_avatar)
-                                .error(R.drawable.challengo_avatar)
+                                .noPlaceholder()
+                                .error(R.drawable.post_image_placeholder)
                                 .into(binding.postCard.ivPostImage)
                         }
 
@@ -303,6 +304,8 @@ class PostDetailsFragment : Fragment() {
     }
 
     override fun onDestroyView() {
+        Picasso.get().cancelRequest(binding.postCard.ivProfileImage)
+        Picasso.get().cancelRequest(binding.postCard.ivPostImage)
         super.onDestroyView()
         _binding = null
     }

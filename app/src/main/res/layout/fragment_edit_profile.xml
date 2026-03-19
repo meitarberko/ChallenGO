@@ -52,9 +52,9 @@
 
             <FrameLayout
                 android:id="@+id/avatarFrame"
-                android:layout_width="126dp"
-                android:layout_height="126dp"
-                android:layout_marginTop="18dp"
+                android:layout_width="118dp"
+                android:layout_height="118dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/profile_avatar_ring"
                 android:padding="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -70,68 +70,37 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/challengo_avatar" />
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                <ImageButton
+                    android:id="@+id/btnSelectImage"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="end|bottom"
-                    android:layout_margin="4dp"
+                    android:layout_margin="3dp"
                     android:background="@drawable/profile_edit_avatar_bg"
-                    android:padding="4dp"
+                    android:contentDescription="@string/change_profile_image"
+                    android:padding="6dp"
                     android:src="@android:drawable/ic_menu_camera"
+                    app:rippleColor="#40E8FDFF"
                     app:tint="#E8FDFF" />
 
                 <ImageButton
                     android:id="@+id/btnDeleteImage"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_gravity="end|top"
-                    android:layout_margin="4dp"
+                    android:layout_margin="3dp"
                     android:background="@drawable/profile_edit_avatar_bg"
                     android:contentDescription="@string/delete"
-                    android:padding="6dp"
+                    android:padding="5dp"
                     android:src="@android:drawable/ic_menu_delete"
                     app:tint="#FFD2D8" />
             </FrameLayout>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/btnSelectImage"
-                android:layout_width="0dp"
-                android:layout_height="94dp"
-                android:layout_marginTop="20dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                app:cardBackgroundColor="#1A2538"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="6dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/avatarFrame"
-                app:strokeColor="#5A63EDFF"
-                app:strokeWidth="1dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tap to select profile image"
-                        android:textColor="#D7E7F6"
-                        android:textSize="15sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilUsername"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="18dp"
                 android:hint="Username"
                 android:textColorHint="#A6ADB8"
                 app:boxBackgroundColor="#0F1728"
@@ -146,7 +115,7 @@
                 app:hintTextColor="#A6ADB8"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnSelectImage">
+                app:layout_constraintTop_toBottomOf="@id/avatarFrame">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etUsername"

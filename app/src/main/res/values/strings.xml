@@ -43,6 +43,8 @@
     <string name="register_profile_photo">Profile photo</string>
     <string name="register_add_photo">Add Photo</string>
     <string name="register_change_photo">Change Photo</string>
+    <string name="change_profile_image">Change profile image</string>
+    <string name="add_post_image">Add image</string>
     <string name="challenge_completed_wait_message">Challenge completed! Please wait until the timer ends to roll your next challenge.</string>
     <string name="notifications_title">Notifications</string>
     <string name="clear">Clear</string>
